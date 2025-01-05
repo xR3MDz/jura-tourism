@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attractions du Jura</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        .attraction-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+        }
+        .attraction-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        .rating {
+            color: #ffd700;
+            margin: 0.5rem 0;
+        }
+        .info-content {
+            padding: 10px;
+            max-width: 300px;
+        }
+        .info-content h3 {
+            margin-top: 0;
+            color: #2c5530;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="attractions.html" class="active">Attractions</a></li>
+                <li><a href="activites.html">Activités</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Découvrez les merveilles du Jura</h1>
+            <p>Des sites naturels exceptionnels aux trésors culturels</p>
+        </section>
+
+        <section class="map-section">
+            <div id="map"></div>
+        </section>
+
+        <section class="attractions-list">
+            <div class="container">
+                <div class="attraction-card">
+                    <h2>Cascades du Hérisson</h2>
+                    <div class="rating">★★★★★</div>
+                    <p>Une succession de 31 cascades sur 3,7 km, formant l'un des plus beaux sites naturels du Jura. 
+                    Le dénivelé total est de 255 mètres et la plus haute cascade mesure 60 mètres.</p>
+                    <p><strong>Conseil :</strong> Prévoyez de bonnes chaussures de marche et comptez environ 3h pour la visite complète.</p>
+                </div>
+
+                <div class="attraction-card">
+                    <h2>Lac de Vouglans</h2>
+                    <div class="rating">★★★★★</div>
+                    <p>Troisième plus grand lac artificiel de France, le lac de Vouglans s'étend sur 35 km. 
+                    Ses eaux turquoise et ses plages aménagées en font un lieu idéal pour la baignade et les activités nautiques.</p>
+                </div>
+
+                <div class="attraction-card">
+                    <h2>Grande Saline de Salins-les-Bains</h2>
+                    <div class="rating">★★★★☆</div>
+                    <p>Classée au patrimoine mondial de l'UNESCO, la Grande Saline témoigne de 1200 ans d'histoire 
+                    de l'exploitation du sel. Découvrez les galeries souterraines et l'histoire fascinante de "l'or blanc".</p>
+                </div>
+
+                <div class="attraction-card">
+                    <h2>Fort des Rousses</h2>
+                    <div class="rating">★★★★☆</div>
+                    <p>Deuxième plus grande forteresse de France, le Fort des Rousses abrite aujourd'hui des caves 
+                    d'affinage de Comté. Visitez ce site unique alliant histoire militaire et tradition fromagère.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Tourisme Jura - Tous droits réservés</p>
+    </footer>
+
+    <script>
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 46.6154017, lng: 5.8663228 },
+                zoom: 9
+            });
+
+            const attractions = [
+                {
+                    position: { lat: 46.6154017, lng: 5.8663228 },
+                    title: "Cascades du Hérisson",
+                    content: `<div class="info-content">
+                        <h3>Cascades du Hérisson</h3>
+                        <p>Site naturel exceptionnel avec 31 cascades</p>
+                        <p>⭐ 4.6/5</p>
+                        <p>🕒 Prévoir 3h de visite</p>
+                        <p>🎫 Parking payant : 5€</p>
+                    </div>`
+                },
+                {
+                    position: { lat: 46.4697355, lng: 5.6735625 },
+                    title: "Lac de Vouglans",
+                    content: `<div class="info-content">
+                        <h3>Lac de Vouglans</h3>
+                        <p>Plus grand lac du Jura</p>
+                        <p>⭐ 4.7/5</p>
+                        <p>🏊‍♂️ Baignade et activités nautiques</p>
+                        <p>🌲 Nombreuses plages aménagées</p>
+                    </div>`
+                },
+                {
+                    position: { lat: 46.9374566, lng: 5.8765544 },
+                    title: "Grande Saline",
+                    content: `<div class="info-content">
+                        <h3>Grande Saline de Salins-les-Bains</h3>
+                        <p>Site UNESCO</p>
+                        <p>⭐ 4.5/5</p>
+                        <p>🏛️ 1200 ans d'histoire</p>
+                        <p>🎫 Visite guidée conseillée</p>
+                    </div>`
+                },
+                {
+                    position: { lat: 46.4789213, lng: 6.0570743 },
+                    title: "Fort des Rousses",
+                    content: `<div class="info-content">
+                        <h3>Fort des Rousses</h3>
+                        <p>Forteresse et caves d'affinage</p>
+                        <p>⭐ 4.4/5</p>
+                        <p>🧀 Visite des caves de Comté</p>
+                        <p>🏰 Site historique</p>
+                    </div>`
+                }
+            ];
+
+            const infoWindow = new google.maps.InfoWindow();
+
+            attractions.forEach(attraction => {
+                const marker = new google.maps.Marker({
+                    position: attraction.position,
+                    map: map,
+                    title: attraction.title
+                });
+
+                marker.addListener('click', () => {
+                    infoWindow.setContent(attraction.content);
+                    infoWindow.open(map, marker);
+                });
+            });
+        }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?callback=initMap">
+    </script>
+</body>
+</html>
